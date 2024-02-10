@@ -4,12 +4,18 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.the
 
+/**
+ * 라이브러리 종속성 관리
+ *
+ * @author   Gyub
+ * @created  2024/02/10
+ */
 object Dependencies {
     private val DependencyHandlerScope.libs get() = the<LibrariesForLibs>()
 
-    const val COMPILE_SDK = 33
+    const val COMPILE_SDK = 34
     const val MIN_SDK = 24
-    const val TARGET_SDK = 33
+    const val TARGET_SDK = 34
 
     private const val implementation = "implementation"
     private const val testImplementation = "testImplementation"
