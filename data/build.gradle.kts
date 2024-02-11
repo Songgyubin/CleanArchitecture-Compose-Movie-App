@@ -1,23 +1,29 @@
+import definition.Configs
+import extensions.DOMAIN
+import extensions.applyCoroutines
+import extensions.applyHilt
+import extensions.applyNetwork
+
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.ANDROID_APPLICATION_PLUGIN)
+    id(Plugins.KOTLIN_ANDROID_PLUGIN)
+    id(Plugins.KOTLIN_KAPT_PLUGIN)
 }
 
 android {
-    namespace = "com.gyub.data"
-    compileSdk = 34
+    namespace = Configs.APP_NAMESPACE
+    compileSdk = Configs.COMPILE_SDK
 
     defaultConfig {
-        minSdk = 24
+        minSdk = Configs.MIN_SDK
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        testInstrumentationRunner = Configs.TEST_INSTRUMENTATION_RUNNER
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile(Configs.PROGUARD_ANDROID_OPTIMIZE), Configs.PROGUARD_RULES)
         }
     }
     compileOptions {
@@ -25,16 +31,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Configs.JVM_TARGET
     }
 }
 
 dependencies {
+    DOMAIN
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    applyNetwork()
+    applyCoroutines()
+    applyHilt()
 }
