@@ -15,10 +15,9 @@ object Dependencies {
     const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:${Versions.ANDROIDX_CORE_KTX}"
     const val ANDROIDX_LIFECYCLE_RUNTIME_KTX = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.ANDROIDX_LIFECYCLE_RUNTIME_KTX}"
     const val ANDROIDX_ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.ANDROIDX_ACTIVITY_COMPOSE}"
-    const val ANDROIDX_COMPOSE_UI = "androidx.compose.ui:ui"
-    const val ANDROIDX_COMPOSE_UI_GRAPHICS = "androidx.compose.ui:ui-graphics"
-    const val ANDROIDX_COMPOSE_UI_TOOLING_PREIVEW = "androidx.compose.ui:ui-tooling-preview"
-    const val ANDROIDX_COMPOSE_MATERIAL3 = "androidx.compose.material3:material3"
+    const val ANDROIDX_COMPOSE_UI = "androidx.compose.ui:ui:${Versions.ANDROIDX_COMPOSE_UI}"
+    const val ANDROIDX_COMPOSE_UI_TOOLING_PREIVEW = "androidx.compose.ui:ui-tooling-preview:${Versions.ANDROIDX_COMPOSE_UI}"
+    const val ANDROIDX_COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.ANDROIDX_COMPOSE_MATERIAL}"
     const val ANDROIDX_NAVIGATION_COMPOSE = "androidx.navigation:navigation-compose:${Versions.ANDROIDX_NAVIGATION_COMPOSE}"
 
     /**

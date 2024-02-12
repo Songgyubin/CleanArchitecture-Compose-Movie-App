@@ -28,9 +28,8 @@ fun DependencyHandlerScope.applyAndroidX() {
     implementation(Dependencies.ANDROIDX_LIFECYCLE_RUNTIME_KTX)
     implementation(Dependencies.ANDROIDX_ACTIVITY_COMPOSE)
     implementation(Dependencies.ANDROIDX_COMPOSE_UI)
-    implementation(Dependencies.ANDROIDX_COMPOSE_UI_GRAPHICS)
     implementation(Dependencies.ANDROIDX_COMPOSE_UI_TOOLING_PREIVEW)
-//    implementation(Dependencies.ANDROIDX_COMPOSE_MATERIAL3)
+    implementation(Dependencies.ANDROIDX_COMPOSE_MATERIAL)
     implementation(Dependencies.ANDROIDX_NAVIGATION_COMPOSE)
 }
 
