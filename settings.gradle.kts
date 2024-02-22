@@ -17,3 +17,4 @@ rootProject.name = "CleanArchitecture-Compose-Movie-App"
 include(":app")
 include(":domain")
 include(":data")
+include(":core:common")
