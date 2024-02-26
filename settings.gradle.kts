@@ -15,5 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "CleanArchitecture-Compose-Movie-App"
 include(":app")
-include(":domain")
-include(":data")
+include(":core:domain")
+include(":core:data")
+include(":core:network")

@@ -111,13 +111,13 @@ private fun DependencyHandler.kaptAndroidTest(dependencyNotation: Any): Dependen
  * Domain 모듈의 종속성을 implementation 구성으로 추가
  */
 val DependencyHandler.DOMAIN
-    get() = implementation(project(mapOf("path" to ":domain")))
+    get() = implementation(project(mapOf("path" to ":core:domain")))
 
 /**
  * Data 모듈의 종속성을 api 구성으로 추가
  */
 val DependencyHandler.DATA
-    get() = implementation(project(mapOf("path" to ":data")))
+    get() = implementation(project(mapOf("path" to ":core:data")))
 
 
 object DependencyConst {
