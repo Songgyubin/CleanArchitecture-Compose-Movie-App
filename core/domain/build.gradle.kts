@@ -1,4 +1,5 @@
 import definition.Configs
+import extensions.COMMON
 import extensions.applyCoroutines
 import extensions.applyHilt
 
@@ -26,6 +27,8 @@ android {
 }
 
 dependencies {
+    COMMON
+
     applyHilt()
     applyCoroutines()
 }
