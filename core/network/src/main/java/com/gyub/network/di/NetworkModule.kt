@@ -2,7 +2,6 @@ package com.gyub.network.di
 
 import android.util.Log
 import com.google.gson.Gson
-import com.gyub.network.BuildConfig
 import com.gyub.network.const.Http.Url.BASE_URL
 import com.gyub.network.util.NetworkUtil
 import dagger.Module
@@ -16,7 +15,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
-import javax.net.ssl.SSLSession
 
 /**
  *  Network Module
@@ -65,11 +63,7 @@ object NetworkModule {
         return HttpLoggingInterceptor { message ->
             Log.d("### Retrofit --", NetworkUtil.getPrettyLogs(message))
         }.apply {
-            level = if (BuildConfig.DEBUG) {
-                HttpLoggingInterceptor.Level.BODY
-            } else {
-                HttpLoggingInterceptor.Level.NONE
-            }
+            level = HttpLoggingInterceptor.Level.BODY
         }
     }
 }
