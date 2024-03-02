@@ -119,6 +119,12 @@ val DependencyHandler.DOMAIN
 val DependencyHandler.DATA
     get() = implementation(project(mapOf("path" to ":core:data")))
 
+/**
+ * Common 모듈의 종속성을 api 구성으로 추가
+ */
+val DependencyHandler.COMMON
+    get() = implementation(project(mapOf("path" to ":core:common")))
+
 
 object DependencyConst {
     const val IMPLEMENTATION = "implementation"

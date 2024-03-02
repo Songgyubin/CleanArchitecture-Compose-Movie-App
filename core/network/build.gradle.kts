@@ -1,3 +1,5 @@
+import extensions.COMMON
+import extensions.DOMAIN
 import extensions.applyHilt
 import extensions.applyNetwork
 import java.util.Properties
@@ -49,6 +51,9 @@ android {
 }
 
 dependencies {
+    COMMON
+    DOMAIN
+
     applyNetwork()
     applyHilt()
 }
