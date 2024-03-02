@@ -1,20 +1,33 @@
 import extensions.applyHilt
 import extensions.applyNetwork
+import java.util.Properties
 
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.ANDROID_LIBRARY_PLUGIN)
+    id(Plugins.KOTLIN_ANDROID_PLUGIN)
+    id(Plugins.KOTLIN_KAPT_PLUGIN)
+    id(Plugins.DAGGER_HILT_PLUGIN)
 }
 
 android {
     namespace = "com.gyub.network"
     compileSdk = 34
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+
+        val localPropertiesFile = rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            val localProperties = Properties()
+            localProperties.load(localPropertiesFile.inputStream())
+            buildConfigField("String", "API_KEY", localProperties.getProperty("API_KEY"))
+        }
     }
 
     buildTypes {
@@ -29,6 +42,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    packaging {
+        resources.excludes.add("META-INF/gradle/incremental.annotation.processors")
     }
 }
 

@@ -50,6 +50,9 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Configs.KOTLIN_COMPILER_EXTENSION_VERSION
     }
+    packaging {
+        resources.excludes.add("META-INF/gradle/incremental.annotation.processors")
+    }
 }
 
 dependencies {

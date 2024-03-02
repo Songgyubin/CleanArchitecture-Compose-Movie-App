@@ -5,9 +5,10 @@ import extensions.applyHilt
 import extensions.applyNetwork
 
 plugins {
-    id(Plugins.ANDROID_APPLICATION_PLUGIN)
+    id(Plugins.ANDROID_LIBRARY_PLUGIN)
     id(Plugins.KOTLIN_ANDROID_PLUGIN)
     id(Plugins.KOTLIN_KAPT_PLUGIN)
+    id(Plugins.DAGGER_HILT_PLUGIN)
 }
 
 android {
@@ -32,6 +33,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = Configs.JVM_TARGET
+    }
+    packaging {
+        resources.excludes.add("META-INF/gradle/incremental.annotation.processors")
     }
 }
 
