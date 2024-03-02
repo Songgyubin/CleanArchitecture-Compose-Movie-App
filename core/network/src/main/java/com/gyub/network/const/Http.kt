@@ -7,7 +7,7 @@ package com.gyub.network.const
  * @author   Gyub
  * @created  2024/02/29
  */
-object Http {
+internal object Http {
 
     /**
      * Http Header
@@ -33,7 +33,14 @@ object Http {
     }
 
     /**
-     * Server Status
+     * Api Version
+     */
+    object ApiVersion {
+        const val VERSION = "v3"
+    }
+
+    /**
+     * Http Status
      */
     object Status {
         const val SUCCESS = 200
@@ -43,9 +50,7 @@ object Http {
         const val VALIDATE_ERROR = 403
         const val NOT_FOUND_ERROR = 404
         const val UPGRADE_ERROR = 426
-        const val DEACTIVATE_ERROR = 308
         const val DUPLICATE_ERROR = 412
         const val NOT_FOUND = 404
-        const val SMS_CERTIFICATION_FAIL = 701
     }
 }
