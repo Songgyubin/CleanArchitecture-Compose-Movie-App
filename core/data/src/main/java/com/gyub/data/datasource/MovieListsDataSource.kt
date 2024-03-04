@@ -5,7 +5,7 @@ import com.gyub.network.retrofit.MovieListsService
 import javax.inject.Inject
 
 /**
- *
+ * 영화 목록 Data Source
  *
  * @author   Gyub
  * @created  2024/03/02
