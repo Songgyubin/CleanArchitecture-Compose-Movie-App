@@ -122,6 +122,12 @@ val DependencyHandler.DATA
 /**
  * Common 모듈의 종속성을 api 구성으로 추가
  */
+val DependencyHandler.NETWORK
+    get() = implementation(project(mapOf("path" to ":core:network")))
+
+/**
+ * Common 모듈의 종속성을 api 구성으로 추가
+ */
 val DependencyHandler.COMMON
     get() = implementation(project(mapOf("path" to ":core:common")))
 
