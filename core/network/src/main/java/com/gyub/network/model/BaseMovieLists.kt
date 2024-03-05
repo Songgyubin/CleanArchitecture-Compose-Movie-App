@@ -8,9 +8,11 @@ import com.gyub.domain.movies.model.MovieListsEntity
  * @author   Gyub
  * @created  2024/03/02
  */
-data class MovieLists(
+data class BaseMovieLists(
     val page: Int?,
-    val results: List<Movie>?
+    val results: List<Movie>?,
+    val totalPages: Int,
+    val totalResults: Long
 ) {
     data class Movie(
         val adult: Boolean?,
@@ -32,12 +34,12 @@ data class MovieLists(
 
 /**
  * Mapper
- * [MovieLists] to [MovieListsEntity]
+ * [BaseMovieLists] to [MovieListsEntity]
  */
-fun MovieLists.toEntity(): MovieListsEntity{
+fun BaseMovieLists.toEntity(): MovieListsEntity {
     return MovieListsEntity(
         page = page,
-        results = results?.map {  movie->
+        results = results?.map { movie ->
             MovieListsEntity.MovieEntity(
                 adult = movie.adult,
                 backdropPath = movie.backdropPath,
@@ -55,6 +57,8 @@ fun MovieLists.toEntity(): MovieListsEntity{
                 voteCount = movie.voteCount
 
             )
-        }
+        },
+        totalPages = totalPages,
+        totalResults = totalResults
     )
 }
