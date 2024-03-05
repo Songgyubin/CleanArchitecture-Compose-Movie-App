@@ -5,7 +5,7 @@ import extensions.applyAndroidX
 import extensions.applyCoroutines
 import extensions.applyHilt
 import extensions.applyNetwork
-import extensions.applyTest
+import extensions.applyUITest
 
 plugins {
     id(Plugins.ANDROID_APPLICATION_PLUGIN)
@@ -63,5 +63,5 @@ dependencies {
     applyCoroutines()
     applyNetwork()
     applyHilt()
-    applyTest()
+    applyUITest()
 }

@@ -42,12 +42,17 @@ object Dependencies {
     const val DAGGER_HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.DAGGER_HILT_COMPILER}"
 
     /**
-     * TEST
+     * UI TEST
      */
-    const val TEST_JUNIT = "junit:junit:${Versions.TEST_JUNIT}"
     const val ANDROID_TEST_ANDROIDX_EXT_JUNIT = "androidx.test.ext:junit:${Versions.ANDROID_TEST_ANDROIDX_EXT_JUNIT}"
     const val ANDROID_TEST_ANDROIDX_ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.ANDROID_TEST_ANDROIDX_ESPRESSO_CORE}"
     const val ANDROID_TEST_ANDROIDX_COMPOSE_BOM = "androidx.compose:compose-bom:${Versions.ANDROID_TEST_ANDROIDX_COMPOSE_BOM}"
     const val DEBUG_ANDROIDX_COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling"
     const val DEBUG_ANDROIDX_COMPOSE_UI_TEST_MANIFEST = "androidx.compose.ui:ui-test-manifest"
+
+    /**
+     * Unit Test
+     */
+    const val TEST_JUNIT = "junit:junit:${Versions.TEST_JUNIT}"
+    const val MOCKK = "io.mockk:mockk:${Versions.TEST_MOCKK}"
 }

@@ -2,6 +2,7 @@ import definition.Configs
 import extensions.COMMON
 import extensions.applyCoroutines
 import extensions.applyHilt
+import extensions.applyUnitTest
 
 plugins {
     id(Plugins.ANDROID_LIBRARY_PLUGIN)
@@ -31,4 +32,5 @@ dependencies {
 
     applyHilt()
     applyCoroutines()
+    applyUnitTest()
 }
