@@ -23,6 +23,7 @@ object Versions {
     const val OKHTTP3_LOGGING_INTERCEPTOR = "4.9.3"
     const val DAGGER_HILT = "2.45"
     const val DAGGER_HILT_COMPILER = "2.45"
+    const val GSON = "2.9.1"
     const val TEST_JUNIT = "4.13.2"
     const val TEST_MOCKK = "1.10.6"
     const val ANDROID_TEST_ANDROIDX_EXT_JUNIT = "1.1.5"

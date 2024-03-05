@@ -3,6 +3,7 @@ import extensions.COMMON
 import extensions.DOMAIN
 import extensions.NETWORK
 import extensions.applyCoroutines
+import extensions.applyGoogle
 import extensions.applyHilt
 import extensions.applyNetwork
 
@@ -49,4 +50,5 @@ dependencies {
     applyNetwork()
     applyCoroutines()
     applyHilt()
+    applyGoogle()
 }

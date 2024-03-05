@@ -61,15 +61,29 @@ fun DependencyHandlerScope.applyHilt() {
 }
 
 /**
- * Test에 관한 종속성 적용
+ * Google Lib에 관한 종속성 적용
  */
-fun DependencyHandlerScope.applyTest() {
+fun DependencyHandlerScope.applyGoogle() {
+    implementation(Dependencies.GSON)
+}
+
+/**
+ * UI Test에 관한 종속성 적용
+ */
+fun DependencyHandlerScope.applyUITest() {
     testImplementation(Dependencies.TEST_JUNIT)
     androidTestImplementation(Dependencies.ANDROID_TEST_ANDROIDX_EXT_JUNIT)
     androidTestImplementation(Dependencies.ANDROID_TEST_ANDROIDX_ESPRESSO_CORE)
     androidTestImplementation(Dependencies.ANDROID_TEST_ANDROIDX_COMPOSE_BOM)
     debugImplementation(Dependencies.DEBUG_ANDROIDX_COMPOSE_UI_TOOLING)
     debugImplementation(Dependencies.DEBUG_ANDROIDX_COMPOSE_UI_TEST_MANIFEST)
+}
+/**
+ * Unit Test에 관한 종속성 적용
+ */
+fun DependencyHandlerScope.applyUnitTest() {
+    testImplementation(Dependencies.TEST_JUNIT)
+    testImplementation(Dependencies.MOCKK)
 }
 
 /**
