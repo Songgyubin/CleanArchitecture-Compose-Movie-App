@@ -21,13 +21,13 @@ object Dependencies {
     const val ANDROIDX_NAVIGATION_COMPOSE = "androidx.navigation:navigation-compose:${Versions.ANDROIDX_NAVIGATION_COMPOSE}"
 
     /**
-     * 코루틴
+     * Coroutines
      */
     const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
     const val COROUTINES_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"
 
     /**
-     * 네트워크
+     * Network
      */
     const val OKHTTP3 = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP3}"
     const val RETROFIT2 = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT2}"
@@ -40,6 +40,11 @@ object Dependencies {
      */
     const val DAGGER_HILT = "com.google.dagger:hilt-android:${Versions.DAGGER_HILT}"
     const val DAGGER_HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.DAGGER_HILT_COMPILER}"
+
+    /**
+     * Google Library
+     */
+    const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
 
     /**
      * UI TEST
