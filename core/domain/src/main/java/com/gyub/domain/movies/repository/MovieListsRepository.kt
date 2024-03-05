@@ -1,6 +1,7 @@
 package com.gyub.domain.movies.repository
 
 import com.gyub.domain.movies.model.MovieListsEntity
+import com.gyub.domain.movies.model.request.base.BasePageRequest
 
 /**
  * 영화 목록 Repository
@@ -13,7 +14,7 @@ interface MovieListsRepository {
     /**
      * 현재 극장에 상영 중인 영화 목록
      */
-    suspend fun getNowPlayingMovieList(): MovieListsEntity
+    suspend fun getNowPlayingMovieList(request: BasePageRequest): MovieListsEntity
 
     /**
      * 인기순으로 정렬된 영화 목록

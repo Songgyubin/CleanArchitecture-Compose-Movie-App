@@ -1,43 +1,17 @@
-package com.gyub.network.model
+package com.gyub.data.model
 
 import com.gyub.domain.movies.model.MovieListsEntity
+import com.gyub.network.model.MovieLists
 
 /**
- * 영화 리스트 응답 모델
+ * Network Layer To Domain Layer
  *
  * @author   Gyub
- * @created  2024/03/02
+ * @created  2024/03/05
  */
-data class BaseMovieLists(
-    val page: Int?,
-    val results: List<Movie>?,
-    val totalPages: Int,
-    val totalResults: Long
-) {
-    data class Movie(
-        val adult: Boolean?,
-        val backdropPath: String?,
-        val genreIds: List<Int>?,
-        val id: Int?,
-        val originalLanguage: String?,
-        val originalTitle: String?,
-        val overview: String?,
-        val popularity: Double?,
-        val posterPath: String?,
-        val releaseDate: String?,
-        val title: String?,
-        val video: Boolean?,
-        val voteAverage: Double?,
-        val voteCount: Int?
-    )
-}
-
-/**
- * Mapper
- * [BaseMovieLists] to [MovieListsEntity]
- */
-fun BaseMovieLists.toEntity(): MovieListsEntity {
+fun MovieLists.toEntity(): MovieListsEntity {
     return MovieListsEntity(
+        dates = dates?.toEntity(),
         page = page,
         results = results?.map { movie ->
             MovieListsEntity.MovieEntity(
@@ -60,5 +34,16 @@ fun BaseMovieLists.toEntity(): MovieListsEntity {
         },
         totalPages = totalPages,
         totalResults = totalResults
+    )
+}
+
+/**
+ * Mapper
+ * [MovieLists.Dates] to [MovieListsEntity.DatesEntity]
+ */
+fun MovieLists.Dates.toEntity(): MovieListsEntity.DatesEntity {
+    return MovieListsEntity.DatesEntity(
+        max = this.max,
+        min = this.min
     )
 }

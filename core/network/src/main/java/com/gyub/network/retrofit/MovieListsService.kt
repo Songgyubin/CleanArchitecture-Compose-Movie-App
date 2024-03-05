@@ -3,6 +3,7 @@ package com.gyub.network.retrofit
 import com.gyub.network.const.Http
 import com.gyub.network.model.MovieLists
 import retrofit2.http.GET
+import retrofit2.http.QueryMap
 
 /**
  *  영화 목록 Service
@@ -17,7 +18,7 @@ interface MovieListsService {
      * 현재 극장에 상영 중인 영화 목록
      */
     @GET("${Http.ApiVersion.VERSION}/now_playing")
-    suspend fun getNowPlayingMovieList(): MovieLists
+    suspend fun getNowPlayingMovieList(@QueryMap request: Map<String, Any>): MovieLists
 
     /**
      * 인기순으로 정렬된 영화 목록

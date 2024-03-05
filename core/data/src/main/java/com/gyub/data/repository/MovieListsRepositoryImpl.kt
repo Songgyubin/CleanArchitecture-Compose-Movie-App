@@ -1,9 +1,10 @@
 package com.gyub.data.repository
 
 import com.gyub.data.datasource.MovieListsDataSource
+import com.gyub.data.model.toEntity
 import com.gyub.domain.movies.model.MovieListsEntity
+import com.gyub.domain.movies.model.request.base.BasePageRequest
 import com.gyub.domain.movies.repository.MovieListsRepository
-import com.gyub.network.model.toEntity
 import javax.inject.Inject
 
 /**
@@ -20,8 +21,8 @@ class MovieListsRepositoryImpl
     /**
      * 현재 극장에 상영 중인 영화 목록
      */
-    override suspend fun getNowPlayingMovieList(): MovieListsEntity {
-        return dataSource.getNowPlayingMovieList().toEntity()
+    override suspend fun getNowPlayingMovieList(request: BasePageRequest): MovieListsEntity {
+        return dataSource.getNowPlayingMovieList(request).toEntity()
     }
 
     /**

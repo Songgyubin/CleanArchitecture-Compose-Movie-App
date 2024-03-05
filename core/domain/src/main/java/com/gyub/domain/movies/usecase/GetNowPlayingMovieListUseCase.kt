@@ -1,6 +1,7 @@
 package com.gyub.domain.movies.usecase
 
 import com.gyub.domain.movies.model.MovieListsEntity
+import com.gyub.domain.movies.model.request.base.BasePageRequest
 import com.gyub.domain.movies.repository.MovieListsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -15,8 +16,8 @@ import javax.inject.Inject
 class GetNowPlayingMovieListUseCase
 @Inject
 constructor(private val movieListsRepository: MovieListsRepository) {
-    operator fun invoke(): Flow<MovieListsEntity> = flow {
-        val item = movieListsRepository.getNowPlayingMovieList()
+    operator fun invoke(request: BasePageRequest): Flow<MovieListsEntity> = flow {
+        val item = movieListsRepository.getNowPlayingMovieList(request)
         emit(item)
     }
 }
