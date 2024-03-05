@@ -1,5 +1,7 @@
 import definition.Configs
+import extensions.COMMON
 import extensions.DOMAIN
+import extensions.NETWORK
 import extensions.applyCoroutines
 import extensions.applyHilt
 import extensions.applyNetwork
@@ -41,6 +43,8 @@ android {
 
 dependencies {
     DOMAIN
+    NETWORK
+    COMMON
 
     applyNetwork()
     applyCoroutines()
