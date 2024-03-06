@@ -1,7 +1,9 @@
+import definition.Configs.NETWORK_NAMESPACE
 import extensions.COMMON
 import extensions.DOMAIN
 import extensions.applyHilt
 import extensions.applyNetwork
+import extensions.applyUnitTest
 import java.util.Properties
 
 plugins {
@@ -12,7 +14,7 @@ plugins {
 }
 
 android {
-    namespace = "com.gyub.network"
+    namespace = NETWORK_NAMESPACE
     compileSdk = 34
 
     buildFeatures {
@@ -56,4 +58,5 @@ dependencies {
 
     applyNetwork()
     applyHilt()
+    applyUnitTest()
 }

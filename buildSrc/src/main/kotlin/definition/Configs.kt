@@ -19,8 +19,10 @@ object Configs {
     const val COMPILE_SDK = 34
 
     const val APP_NAMESPACE = "com.gyub.movieapp"
-    const val DATA_NAMESPACE = "com.gyub.movieapp.data"
-    const val DOMAIN_NAMESPACE = "com.gyub.movieapp.domain"
+    const val DATA_NAMESPACE = "com.gyub.movieapp.core.data"
+    const val DOMAIN_NAMESPACE = "com.gyub.movieapp.core.domain"
+    const val NETWORK_NAMESPACE = "com.gyub.movieapp.core.network"
+    const val COMMON_NAMESPACE = "com.gyub.movieapp.core.common"
 
     const val VERSION_CODE = 1000000
     const val VERSION_NAME = "$versionMajor.$versionMinor.$versionPatch"

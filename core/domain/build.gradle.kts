@@ -11,7 +11,7 @@ plugins {
 }
 
 android {
-    namespace = Configs.APP_NAMESPACE
+    namespace = Configs.DOMAIN_NAMESPACE
     compileSdk = Configs.COMPILE_SDK
 
     defaultConfig {
