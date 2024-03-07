@@ -8,6 +8,7 @@ plugins {
     id(Plugins.ANDROID_LIBRARY_PLUGIN)
     id(Plugins.KOTLIN_KAPT_PLUGIN)
     id(Plugins.DAGGER_HILT_PLUGIN)
+    id(Plugins.KOTLIN_ANDROID_PLUGIN)
 }
 
 android {
@@ -24,6 +25,10 @@ android {
     }
     packaging {
         resources.excludes.add("META-INF/gradle/incremental.annotation.processors")
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 

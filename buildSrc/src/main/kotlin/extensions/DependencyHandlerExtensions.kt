@@ -29,7 +29,8 @@ fun DependencyHandlerScope.applyAndroidX() {
     implementation(Dependencies.ANDROIDX_ACTIVITY_COMPOSE)
     implementation(Dependencies.ANDROIDX_COMPOSE_UI)
     implementation(Dependencies.ANDROIDX_COMPOSE_UI_TOOLING_PREIVEW)
-    implementation(Dependencies.ANDROIDX_COMPOSE_MATERIAL)
+//    implementation(Dependencies.ANDROIDX_COMPOSE_MATERIAL)
+    implementation(Dependencies.ANDROIDX_COMPOSE_MATERIAL_3)
     implementation(Dependencies.ANDROIDX_NAVIGATION_COMPOSE)
 }
 
@@ -57,7 +58,7 @@ fun DependencyHandlerScope.applyNetwork() {
  */
 fun DependencyHandlerScope.applyHilt() {
     implementation(Dependencies.DAGGER_HILT)
-    implementation(Dependencies.DAGGER_HILT_COMPILER)
+    kapt(Dependencies.DAGGER_HILT_COMPILER)
 }
 
 /**

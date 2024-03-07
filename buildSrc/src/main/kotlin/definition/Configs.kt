@@ -19,10 +19,10 @@ object Configs {
     const val COMPILE_SDK = 34
 
     const val APP_NAMESPACE = "com.gyub.movieapp"
-    const val DATA_NAMESPACE = "com.gyub.movieapp.core.data"
-    const val DOMAIN_NAMESPACE = "com.gyub.movieapp.core.domain"
-    const val NETWORK_NAMESPACE = "com.gyub.movieapp.core.network"
-    const val COMMON_NAMESPACE = "com.gyub.movieapp.core.common"
+    const val DATA_NAMESPACE = "com.gyub.core.data"
+    const val DOMAIN_NAMESPACE = "com.gyub.core.domain"
+    const val NETWORK_NAMESPACE = "com.gyub.core.network"
+    const val COMMON_NAMESPACE = "com.gyub.core.common"
 
     const val VERSION_CODE = 1000000
     const val VERSION_NAME = "$versionMajor.$versionMinor.$versionPatch"
@@ -37,5 +37,5 @@ object Configs {
     )
 
     const val JVM_TARGET = "1.8"
-    const val KOTLIN_COMPILER_EXTENSION_VERSION = "1.5.1"
+    const val KOTLIN_COMPILER_EXTENSION_VERSION = "1.5.10"
 }

@@ -3,7 +3,7 @@ package com.gyub.network.util
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
-import com.gyub.network.BuildConfig.API_KEY
+import com.gyub.core.network.BuildConfig.API_KEY
 import com.gyub.network.const.Http
 import okhttp3.Interceptor
 

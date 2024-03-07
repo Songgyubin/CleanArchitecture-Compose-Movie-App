@@ -10,6 +10,7 @@ import retrofit2.http.GET
  * @author   Gyub
  * @created  2024/03/02
  */
+@JvmSuppressWildcards
 interface MovieListsService {
 
     /**
