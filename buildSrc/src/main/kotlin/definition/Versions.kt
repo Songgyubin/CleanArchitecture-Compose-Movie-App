@@ -27,6 +27,7 @@ object Versions {
     const val GSON = "2.9.1"
     const val TEST_JUNIT = "4.13.2"
     const val TEST_MOCKK = "1.10.6"
+    const val TEST_MOCK_WEB_SERVER = "4.12.0"
     const val ANDROID_TEST_ANDROIDX_EXT_JUNIT = "1.1.5"
     const val ANDROID_TEST_ANDROIDX_ESPRESSO_CORE = "3.5.1"
     const val ANDROID_TEST_ANDROIDX_COMPOSE_BOM = "2024.02.00"

@@ -7,7 +7,7 @@ package definition
  * @created  2024/02/10
  */
 object Configs {
-    private const val API_KEY = "5268e8593cc74d8ceee08f2dee857cc7"
+    private const val API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MjY4ZTg1OTNjYzc0ZDhjZWVlMDhmMmRlZTg1N2NjNyIsInN1YiI6IjY1ZDQyNzk3MDlkZGE0MDE4ODU3YjlkZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.x4ffATm767ZkEY0PgPYv7IHbCwhnkg3M-fcQ7WGNht0"
 
     private const val versionMajor = 0
     private const val versionMinor = 0

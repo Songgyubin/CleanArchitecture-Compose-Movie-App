@@ -1,5 +1,7 @@
 package com.gyub.data.datasource
 
+import com.gyub.data.serializeToMap
+import com.gyub.domain.movies.model.request.base.BasePageRequest
 import com.gyub.network.model.MovieLists
 import com.gyub.network.retrofit.MovieListsService
 import javax.inject.Inject
@@ -17,8 +19,8 @@ constructor(private val movieListsService: MovieListsService) {
     /**
      * 현재 극장에 상영 중인 영화 목록
      */
-    suspend fun getNowPlayingMovieList(): MovieLists {
-        return movieListsService.getNowPlayingMovieList()
+    suspend fun getNowPlayingMovieList(request: BasePageRequest): MovieLists {
+        return movieListsService.getNowPlayingMovieList(request.serializeToMap())
     }
 
     /**

@@ -85,6 +85,7 @@ fun DependencyHandlerScope.applyUITest() {
 fun DependencyHandlerScope.applyUnitTest() {
     testImplementation(Dependencies.TEST_JUNIT)
     testImplementation(Dependencies.MOCKK)
+    testImplementation(Dependencies.MOCK_WEB_SERVER)
 }
 
 /**
@@ -125,7 +126,7 @@ private fun DependencyHandler.kaptAndroidTest(dependencyNotation: Any): Dependen
 /**
  * Domain 모듈의 종속성을 implementation 구성으로 추가
  */
-val DependencyHandler.DOMAIN
+val DependencyHandlerScope.DOMAIN
     get() = implementation(project(mapOf("path" to ":core:domain")))
 
 /**
@@ -135,7 +136,7 @@ val DependencyHandler.DATA
     get() = implementation(project(mapOf("path" to ":core:data")))
 
 /**
- * Common 모듈의 종속성을 api 구성으로 추가
+ * Network 모듈의 종속성을 api 구성으로 추가
  */
 val DependencyHandler.NETWORK
     get() = implementation(project(mapOf("path" to ":core:network")))
