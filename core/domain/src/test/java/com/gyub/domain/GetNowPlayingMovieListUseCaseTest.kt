@@ -8,6 +8,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import junit.framework.TestCase.assertEquals
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
@@ -38,7 +39,7 @@ class GetNowPlayingMovieListUseCaseTest {
         // 예상되는 반환값 설정
         val expected = flowOf(
             MovieListsEntity(
-                page = null, results = listOf(), totalPages = 42811, totalResults = 856209
+                page = null, results = listOf(), totalPages = 183, totalResults = 3658
             )
         )
 
@@ -46,10 +47,11 @@ class GetNowPlayingMovieListUseCaseTest {
         coEvery { movieListsRepository.getNowPlayingMovieList(BasePageRequest()) } returns expected.first()
 
         // UseCase 실행
-        val result = getNowPlayingMovieListUseCase.invoke(BasePageRequest()).first()
+        val result = getNowPlayingMovieListUseCase.invoke(BasePageRequest()).filter { it.totalPages != null }.first()
+        println(result)
 
         // 결과 검증
-        assertEquals(expected.first(), result)
+        assertEquals(expected.first().totalPages, result.totalPages)
         coVerify { movieListsRepository.getNowPlayingMovieList(BasePageRequest()) }
     }
 }

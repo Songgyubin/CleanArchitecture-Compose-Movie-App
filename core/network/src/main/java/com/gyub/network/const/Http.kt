@@ -36,7 +36,7 @@ internal object Http {
      * Api Version
      */
     object ApiVersion {
-        const val VERSION = "v3"
+        const val VERSION = "3"
     }
 
     /**

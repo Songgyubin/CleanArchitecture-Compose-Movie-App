@@ -1,7 +1,5 @@
 package com.gyub.network.model
 
-import com.gyub.domain.movies.model.MovieListsEntity
-
 /**
  * 영화 리스트 응답 모델
  *
