@@ -1,17 +1,23 @@
 import definition.Configs
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import definition.Configs.COMMON_NAMESPACE
+import extensions.applyHilt
 
 plugins {
-    id("java-library")
-    id("org.jetbrains.kotlin.jvm")
+    id(Plugins.ANDROID_LIBRARY_PLUGIN)
+    id(Plugins.KOTLIN_ANDROID_PLUGIN)
+    id(Plugins.KOTLIN_KAPT_PLUGIN)
+    id(Plugins.DAGGER_HILT_PLUGIN)
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-tasks.withType<KotlinCompile> {
+android {
+    namespace = COMMON_NAMESPACE
+    compileSdk = Configs.COMPILE_SDK
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Configs.JVM_TARGET
     }
+}
+
+dependencies {
+    applyHilt()
 }
