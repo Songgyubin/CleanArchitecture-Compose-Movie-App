@@ -8,7 +8,7 @@ import com.gyub.network.const.Http
 import okhttp3.Interceptor
 
 /**
- *
+ * 네트워크 관련 Util
  *
  * @author   Gyub
  * @created  2024/03/02
