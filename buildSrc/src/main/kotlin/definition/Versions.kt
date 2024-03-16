@@ -14,8 +14,6 @@ object Versions {
     const val ANDROIDX_NAVIGATION_COMPOSE = "2.7.7"
     const val ANDROIDX_COMPOSE_MATERIAL = "1.6.1"
     const val ANDROIDX_COMPOSE_UI = "1.6.1"
-    const val ANDROIDX_COMPOSE_MATERIAL_3 = "1.0.0-alpha02"
-
     const val COROUTINES = "1.7.3"
     const val OKHTTP3 = "4.12.0"
     const val RETROFIT2 = "2.9.0"
