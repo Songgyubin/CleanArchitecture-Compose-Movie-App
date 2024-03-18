@@ -1,4 +1,5 @@
 import definition.Configs
+import extensions.COMMON
 import extensions.DATA
 import extensions.DOMAIN
 import extensions.applyAndroidX
@@ -58,6 +59,7 @@ android {
 dependencies {
     DATA
     DOMAIN
+    COMMON
 
     applyAndroidX()
     applyCoroutines()
