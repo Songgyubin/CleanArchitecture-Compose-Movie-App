@@ -6,7 +6,7 @@ package com.gyub.domain.movies.model
  * @author   Gyub
  * @created  2024/02/22
  */
-open class MovieListsEntity(
+data class MovieListsEntity(
     val dates: DatesEntity? = null,
     val page: Int? = null,
     val results: List<MovieEntity>? = null,
