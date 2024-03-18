@@ -13,6 +13,12 @@ android {
     namespace = COMMON_NAMESPACE
     compileSdk = Configs.COMPILE_SDK
 
+    defaultConfig {
+        minSdk = Configs.MIN_SDK
+
+        testInstrumentationRunner = Configs.TEST_INSTRUMENTATION_RUNNER
+    }
+
     kotlinOptions {
         jvmTarget = Configs.JVM_TARGET
     }
