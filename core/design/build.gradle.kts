@@ -1,3 +1,4 @@
+import definition.Configs
 import extensions.applyAndroidX
 
 plugins {
@@ -28,6 +29,14 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Configs.KOTLIN_COMPILER_EXTENSION_VERSION
     }
 }
 
