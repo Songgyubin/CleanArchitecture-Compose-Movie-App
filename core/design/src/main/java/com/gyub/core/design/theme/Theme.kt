@@ -1,4 +1,4 @@
-package com.gyub.movieapp.ui.theme
+package com.gyub.core.design.theme
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -15,16 +15,16 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 
 private val DarkColorPalette = darkColors(
-    primary = Purple80,
-    primaryVariant = PurpleGrey80,
-    secondary = Pink80
+    primary = GDSRed30,
+    primaryVariant = DarkPurpleGray20,
+    secondary = GDSRed80
     // 기타 필요한 색상을 추가할 수 있습니다.
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple40,
-    primaryVariant = PurpleGrey40,
-    secondary = Pink40
+    primary = Blue30,
+    primaryVariant = PurpleGray50,
+    secondary = Blue80
     // 기타 필요한 색상을 추가할 수 있습니다.
 )
 
@@ -50,7 +50,7 @@ fun CleanArchitectureComposeMovieAppTheme(
 
     MaterialTheme(
         colors = colors,
-        typography = Typography,
+        typography = GDSTypography,
         shapes = Shapes,
         content = content
     )
