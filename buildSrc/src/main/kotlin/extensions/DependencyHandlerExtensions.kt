@@ -146,6 +146,11 @@ val DependencyHandler.NETWORK
 val DependencyHandler.COMMON
     get() = implementation(project(mapOf("path" to ":core:common")))
 
+/**
+ * Design 모듈의 종속성을 api 구성으로 추가
+ */
+val DependencyHandler.DESIGN
+    get() = implementation(project(mapOf("path" to ":core:design")))
 
 object DependencyConst {
     const val IMPLEMENTATION = "implementation"
