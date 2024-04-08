@@ -47,7 +47,7 @@ fun MovieListsEntity.toUiModel(): MovieListsUiModel =
 fun MovieListsEntity.MovieEntity?.toUiModel(): MovieListsUiModel.MovieUiModel =
     MovieListsUiModel.MovieUiModel(
         id = this?.id.orDefault(),
-        adult = this?.adult.orDefault(),
+        adult = this?.adult.orDefault(false),
         genreIds = this?.genreIds.orEmpty(),
         overview = this?.overview.orEmpty(),
         posterPath = this?.posterPath.orEmpty(),

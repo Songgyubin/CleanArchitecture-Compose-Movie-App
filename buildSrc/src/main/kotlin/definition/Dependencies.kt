@@ -19,6 +19,7 @@ object Dependencies {
     const val ANDROIDX_COMPOSE_UI_TOOLING_PREIVEW = "androidx.compose.ui:ui-tooling-preview:${Versions.ANDROIDX_COMPOSE_UI}"
     const val ANDROIDX_COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.ANDROIDX_COMPOSE_MATERIAL}"
     const val ANDROIDX_NAVIGATION_COMPOSE = "androidx.navigation:navigation-compose:${Versions.ANDROIDX_NAVIGATION_COMPOSE}"
+    const val ANDROIDX_HILT_NAVIGATION_COMPOSE = "androidx.hilt:hilt-navigation-compose:${Versions.ANDROIDX_HILT_NAVIGATION_COMPOSE}"
 
     /**
      * Coroutines
