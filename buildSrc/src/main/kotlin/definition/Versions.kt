@@ -16,6 +16,7 @@ object Versions {
     const val ANDROIDX_COMPOSE_UI = "1.6.1"
     const val ANDROIDX_HILT_NAVIGATION_COMPOSE = "1.0.0"
     const val COROUTINES = "1.7.3"
+    const val COIL_KT = "2.5.0"
     const val OKHTTP3 = "4.12.0"
     const val RETROFIT2 = "2.9.0"
     const val RETROFIT2_CONVERTER_GSON = "2.9.0"

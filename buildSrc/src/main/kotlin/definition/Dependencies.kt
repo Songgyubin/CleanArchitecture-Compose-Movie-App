@@ -43,6 +43,12 @@ object Dependencies {
     const val DAGGER_HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.DAGGER_HILT_COMPILER}"
 
     /**
+     * COIL
+     */
+    const val COIL_KT = "io.coil-kt:coil:${Versions.COIL_KT}"
+    const val COIL_KT_COMPOSE = "io.coil-kt:coil-compose:${Versions.COIL_KT}"
+
+    /**
      * Google Library
      */
     const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
