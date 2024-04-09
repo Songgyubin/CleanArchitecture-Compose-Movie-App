@@ -6,7 +6,6 @@ import com.gyub.domain.movies.model.request.base.BasePageRequest
 import com.gyub.domain.movies.repository.MovieListsRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
@@ -26,7 +25,5 @@ constructor(
     operator fun invoke(request: BasePageRequest): Flow<MovieListsEntity> = flow {
         val item = movieListsRepository.getNowPlayingMovieList(request)
         emit(item)
-    }.catch {
-        emit(MovieListsEntity())
     }.flowOn(ioDispatcher)
 }

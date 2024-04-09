@@ -86,6 +86,7 @@ fun DependencyHandlerScope.applyUnitTest() {
     testImplementation(Dependencies.TEST_JUNIT)
     testImplementation(Dependencies.MOCKK)
     testImplementation(Dependencies.MOCK_WEB_SERVER)
+    testImplementation(Dependencies.COROUTINES_TEST)
 }
 
 /**

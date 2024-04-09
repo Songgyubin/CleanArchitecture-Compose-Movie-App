@@ -68,4 +68,5 @@ object Dependencies {
     const val TEST_JUNIT = "junit:junit:${Versions.TEST_JUNIT}"
     const val MOCKK = "io.mockk:mockk:${Versions.TEST_MOCKK}"
     const val MOCK_WEB_SERVER = "com.squareup.okhttp3:mockwebserver:${Versions.TEST_MOCK_WEB_SERVER}"
+    const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES}"
 }

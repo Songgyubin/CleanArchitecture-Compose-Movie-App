@@ -8,6 +8,7 @@ import extensions.applyCoroutines
 import extensions.applyHilt
 import extensions.applyNetwork
 import extensions.applyUITest
+import extensions.applyUnitTest
 
 plugins {
     id(Plugins.ANDROID_APPLICATION_PLUGIN)
@@ -72,4 +73,5 @@ dependencies {
     applyNetwork()
     applyHilt()
     applyUITest()
+    applyUnitTest()
 }
