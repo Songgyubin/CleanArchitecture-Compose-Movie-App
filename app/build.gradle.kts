@@ -34,8 +34,12 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
+        }
+
+        release {
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile(Configs.PROGUARD_ANDROID_OPTIMIZE), Configs.PROGUARD_RULES)
         }
     }
