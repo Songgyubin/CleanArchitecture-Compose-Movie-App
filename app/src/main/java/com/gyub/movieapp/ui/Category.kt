@@ -54,7 +54,11 @@ fun CategoryList(categories: List<MovieListsCategory>) {
 }
 
 @Composable
-fun CategoryIndicatorText(categoryName: String, isSelected: Boolean, onCategorySelected: (String) -> Unit) {
+fun CategoryIndicatorText(
+    categoryName: String,
+    isSelected: Boolean,
+    onCategorySelected: (String) -> Unit
+) {
     Column(
         modifier = Modifier
             .padding(end = 40.dp)

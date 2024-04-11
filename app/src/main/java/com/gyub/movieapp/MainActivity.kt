@@ -24,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,6 +33,7 @@ import com.gyub.core.design.theme.CleanArchitectureComposeMovieAppTheme
 import com.gyub.core.design.theme.GDSWhite
 import com.gyub.core.design.theme.Paddings
 import com.gyub.movieapp.ui.CategoryList
+import com.gyub.movieapp.ui.MovieViewPager
 import com.gyub.movieapp.util.ui.ComingSoonCircularText
 import com.gyub.movieapp.util.enums.MovieListsCategory
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,17 +56,13 @@ class MainActivity : ComponentActivity() {
                         TopAppBar(onImageClick = { showText = true })
                         Spacer(modifier = Modifier.height(48.dp))
                         CategoryList(MovieListsCategory.entries)
+                        Spacer(modifier = Modifier.height(48.dp))
+                        MovieViewPager(modifier = Modifier.fillMaxWidth())
                     }
                 }
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun TopAppBarPreview() {
-    TopAppBar({})
 }
 
 @Composable
@@ -99,4 +97,10 @@ fun TopAppBar(onImageClick: () -> Unit) {
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun TopAppBarPreview() {
+    TopAppBar({})
 }

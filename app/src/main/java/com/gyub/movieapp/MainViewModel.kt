@@ -2,6 +2,8 @@ package com.gyub.movieapp
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gyub.common.model.Result
+import com.gyub.common.model.toResult
 import com.gyub.domain.movies.model.request.base.BasePageRequest
 import com.gyub.domain.movies.usecase.GetNowPlayingMovieListUseCase
 import com.gyub.movieapp.model.MovieListsUiModel
@@ -26,10 +28,23 @@ class MainViewModel @Inject constructor(
     private var basePageRequest = BasePageRequest()
 
     val nowPlayingMovieListState = getNowPlayingMovieListUseCase(basePageRequest)
-        .map { it.toUiModel() }
+        .toResult()
+        .map { result ->
+            when (result) {
+                is Result.Loading -> NowPlayingMovieUiState.Loading
+                is Result.Error -> NowPlayingMovieUiState.Error
+                is Result.Success -> NowPlayingMovieUiState.Success(result.data.toUiModel())
+            }
+        }
         .stateIn(
             viewModelScope,
             initialValue = MovieListsUiModel(),
             started = SharingStarted.WhileSubscribed(5000)
         )
+}
+
+sealed interface NowPlayingMovieUiState {
+    data object Loading : NowPlayingMovieUiState
+    data object Error : NowPlayingMovieUiState
+    data class Success(val data: MovieListsUiModel) : NowPlayingMovieUiState
 }
