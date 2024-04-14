@@ -1,7 +1,7 @@
 package com.gyub.data.movie.datasource
 
 import com.gyub.data.serializeToMap
-import com.gyub.domain.movie.model.request.base.BasePageRequest
+import com.gyub.domain.base.request.BasePageRequest
 import com.gyub.network.model.MovieLists
 import com.gyub.network.retrofit.MovieListsService
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.gyub.domain.movie.model.request.base
+package com.gyub.domain.base.request
 
 /**
  * 기본 페이지 요청 모델
