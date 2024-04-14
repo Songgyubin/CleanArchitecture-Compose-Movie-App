@@ -9,7 +9,7 @@ package definition
 object Versions {
     const val ANDROIDX_COMPOSE_BOM = "2024.02.00"
     const val ANDROIDX_CORE_KTX = "1.12.0"
-    const val ANDROIDX_LIFECYCLE_RUNTIME_KTX = "2.7.0"
+    const val ANDROIDX_LIFECYCLE = "2.7.0"
     const val ANDROIDX_ACTIVITY_COMPOSE = "1.8.2"
     const val ANDROIDX_NAVIGATION_COMPOSE = "2.7.7"
     const val ANDROIDX_COMPOSE_MATERIAL = "1.6.1"

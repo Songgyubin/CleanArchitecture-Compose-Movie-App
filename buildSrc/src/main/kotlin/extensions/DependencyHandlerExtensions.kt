@@ -32,6 +32,7 @@ fun DependencyHandlerScope.applyAndroidX() {
     implementation(Dependencies.ANDROIDX_COMPOSE_MATERIAL)
     implementation(Dependencies.ANDROIDX_NAVIGATION_COMPOSE)
     implementation(Dependencies.ANDROIDX_HILT_NAVIGATION_COMPOSE)
+    implementation(Dependencies.ANDROIDX_LIFECYCLE_RUNTIME_COMPOSE)
 }
 
 /**
