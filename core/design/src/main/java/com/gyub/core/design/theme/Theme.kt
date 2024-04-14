@@ -24,7 +24,7 @@ private val DarkColorPalette = darkColors(
 private val LightColorPalette = lightColors(
     primary = GDSWhite,
     primaryVariant = PurpleGray50,
-    secondary = Blue80
+    secondary = GDSBlue80
     // 기타 필요한 색상을 추가할 수 있습니다.
 )
 

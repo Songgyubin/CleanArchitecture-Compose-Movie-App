@@ -21,12 +21,12 @@ val GDSRed90 = Color(0xFFFFDAD6) // 매우 밝은 레드 색조
 val DarkPurpleGray20 = Color(0xFF362F30)
 val GDSPink = Color(0xFFFE6D8E)
 
-val Blue10 = Color(0xFF001F28)
-val Blue20 = Color(0xFF003544)
-val Blue30 = Color(0xFF004D61)
-val Blue40 = Color(0xFF006780)
-val Blue80 = Color(0xFF5DD5FC)
-val Blue90 = Color(0xFFB8EAFF)
+val GDSBlue10 = Color(0xFF001F28)
+val GDSBlue20 = Color(0xFF003544)
+val GDSBlue30 = Color(0xFF004D61)
+val GDSBlue40 = Color(0xFF006780)
+val GDSBlue80 = Color(0xFF5DD5FC)
+val GDSBlue90 = Color(0xFFB8EAFF)
 val PurpleGray50 = Color(0xFF7F747C)
 
 val GDSBlack = Color(0xFF000000)
@@ -37,3 +37,7 @@ val GDSWhite = Color(0xFFFFFFFF)
  */
 val GDSGray10 = Color(0xFF12153D)
 val GDSGray30 = Color(0xFF808080)
+val GDSGray40 = Color(0xFF434670)
+
+val GDSGreenGray60 = Color(0xFF8B938A)
+val GDSGreenGray90 = Color(0xFFDDE5DB)
