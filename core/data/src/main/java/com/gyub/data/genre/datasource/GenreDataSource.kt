@@ -18,7 +18,7 @@ class GenreDataSource @Inject constructor(
      *
      * @return 영화 장르 리스트
      */
-    fun getMovieGenres(): List<Genre> {
-        return genresService.getMovieGenre()
+    suspend fun getMovieGenres(): List<Genre> {
+        return genresService.getMovieGenre().genres.orEmpty()
     }
 }

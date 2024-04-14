@@ -21,7 +21,7 @@ class GenreRepositoryImpl @Inject constructor(
      *
      * @return 영화 장르 리스트
      */
-    override fun getMovieGenres(): List<GenreEntity> {
+    override suspend fun getMovieGenres(): List<GenreEntity> {
         return datasource.getMovieGenres().map {
             it.toEntity()
         }

@@ -3,6 +3,7 @@ package com.gyub.network.retrofit
 import com.gyub.network.const.ApiEndpoints
 import com.gyub.network.const.Http
 import com.gyub.network.model.Genre
+import com.gyub.network.model.GenreResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -15,5 +16,5 @@ import retrofit2.http.Query
 interface GenresService {
 
     @GET("${Http.ApiVersion.VERSION}${ApiEndpoints.GENRE}/movie/list")
-    fun getMovieGenre(@Query("language") lan: String = "ko-KR") : List<Genre>
+    suspend fun getMovieGenre(@Query("language") lan: String = "ko-KR") : GenreResponse
 }

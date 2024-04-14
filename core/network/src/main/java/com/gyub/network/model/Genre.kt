@@ -6,6 +6,10 @@ package com.gyub.network.model
  * @author   Gyub
  * @created  2024/04/14
  */
+data class GenreResponse(
+    val genres: List<Genre>?
+)
+
 data class Genre(
     val id: Int?,
     val name: String?
