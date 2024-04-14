@@ -8,5 +8,6 @@ package com.gyub.network.const
  */
 object ApiEndpoints {
     const val MOVIE = "/movie"
+    const val GENRE = "/genre"
 
 }
