@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gyub.common.model.Result
 import com.gyub.common.model.toResult
-import com.gyub.domain.movie.model.request.base.BasePageRequest
+import com.gyub.domain.base.request.BasePageRequest
 import com.gyub.domain.movie.usecase.GetNowPlayingMovieListUseCase
 import com.gyub.movieapp.model.MovieListsUiModel
 import com.gyub.movieapp.model.toUiModel

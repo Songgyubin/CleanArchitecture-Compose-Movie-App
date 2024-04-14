@@ -1,7 +1,7 @@
 package com.gyub.domain.movie.repository
 
 import com.gyub.domain.movie.model.MovieListsEntity
-import com.gyub.domain.movie.model.request.base.BasePageRequest
+import com.gyub.domain.base.request.BasePageRequest
 
 /**
  * 영화 목록 Repository
