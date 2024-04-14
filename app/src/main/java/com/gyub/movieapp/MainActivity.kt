@@ -33,6 +33,7 @@ import com.gyub.core.design.theme.CleanArchitectureComposeMovieAppTheme
 import com.gyub.core.design.theme.GDSWhite
 import com.gyub.core.design.theme.Paddings
 import com.gyub.movieapp.ui.CategoryList
+import com.gyub.movieapp.ui.GenreList
 import com.gyub.movieapp.ui.MovieViewPager
 import com.gyub.movieapp.util.ui.ComingSoonCircularText
 import com.gyub.movieapp.util.enums.MovieListsCategory
@@ -57,6 +58,8 @@ class MainActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.height(48.dp))
                         CategoryList(MovieListsCategory.entries)
                         Spacer(modifier = Modifier.height(48.dp))
+                        GenreList()
+                        Spacer(modifier = Modifier.height(72.dp))
                         MovieViewPager(modifier = Modifier.fillMaxWidth())
                     }
                 }
