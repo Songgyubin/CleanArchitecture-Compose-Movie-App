@@ -1,6 +1,6 @@
-package com.gyub.data.model
+package com.gyub.data.movie.model
 
-import com.gyub.domain.movies.model.MovieListsEntity
+import com.gyub.domain.movie.model.MovieListsEntity
 import com.gyub.network.model.MovieLists
 
 /**

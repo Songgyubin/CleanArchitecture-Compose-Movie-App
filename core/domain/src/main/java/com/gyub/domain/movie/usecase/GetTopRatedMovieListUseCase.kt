@@ -1,4 +1,4 @@
-package com.gyub.domain.movies.usecase
+package com.gyub.domain.movie.usecase
 
 /**
  * 등급별로 정렬된 영화 목록 UseCase

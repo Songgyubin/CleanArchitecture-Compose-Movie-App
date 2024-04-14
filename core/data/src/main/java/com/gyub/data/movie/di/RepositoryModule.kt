@@ -1,7 +1,7 @@
-package com.gyub.data.di
+package com.gyub.data.movie.di
 
-import com.gyub.data.repository.MovieListsRepositoryImpl
-import com.gyub.domain.movies.repository.MovieListsRepository
+import com.gyub.data.movie.repository.MovieListsRepositoryImpl
+import com.gyub.domain.movie.repository.MovieListsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

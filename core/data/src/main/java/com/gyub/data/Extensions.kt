@@ -25,16 +25,6 @@ fun <T> T.serializeToMap(): Map<String, Any> {
 }
 
 /**
- * convert a map to a data class
- *
- * @param T Map<String,Any> Data
- * @return Data Class
- */
-inline fun <reified T> Map<String, Any>.toDataClass(): T {
-    return convert()
-}
-
-/**
  * convert an object of type I to type O
  *
  * @param I Input Object

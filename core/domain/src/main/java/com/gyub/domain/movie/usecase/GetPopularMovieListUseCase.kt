@@ -1,4 +1,4 @@
-package com.gyub.domain.movies.usecase
+package com.gyub.domain.movie.usecase
 
 /**
  * 인기순으로 정령된 영화 목록 UseCase

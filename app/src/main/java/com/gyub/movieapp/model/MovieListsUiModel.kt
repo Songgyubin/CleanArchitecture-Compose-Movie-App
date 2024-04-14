@@ -1,7 +1,7 @@
 package com.gyub.movieapp.model
 
 import com.gyub.common.util.extension.orDefault
-import com.gyub.domain.movies.model.MovieListsEntity
+import com.gyub.domain.movie.model.MovieListsEntity
 
 /**
  * 영화 목록 UI Model

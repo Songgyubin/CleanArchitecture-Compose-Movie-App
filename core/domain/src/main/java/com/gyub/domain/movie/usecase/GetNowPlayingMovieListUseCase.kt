@@ -1,9 +1,9 @@
-package com.gyub.domain.movies.usecase
+package com.gyub.domain.movie.usecase
 
 import com.gyub.common.di.IoDispatcher
-import com.gyub.domain.movies.model.MovieListsEntity
-import com.gyub.domain.movies.model.request.base.BasePageRequest
-import com.gyub.domain.movies.repository.MovieListsRepository
+import com.gyub.domain.movie.model.MovieListsEntity
+import com.gyub.domain.movie.model.request.base.BasePageRequest
+import com.gyub.domain.movie.repository.MovieListsRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

@@ -1,9 +1,9 @@
 package com.gyub.domain
 
-import com.gyub.domain.movies.model.MovieListsEntity
-import com.gyub.domain.movies.model.request.base.BasePageRequest
-import com.gyub.domain.movies.repository.MovieListsRepository
-import com.gyub.domain.movies.usecase.GetNowPlayingMovieListUseCase
+import com.gyub.domain.movie.model.MovieListsEntity
+import com.gyub.domain.movie.model.request.base.BasePageRequest
+import com.gyub.domain.movie.repository.MovieListsRepository
+import com.gyub.domain.movie.usecase.GetNowPlayingMovieListUseCase
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

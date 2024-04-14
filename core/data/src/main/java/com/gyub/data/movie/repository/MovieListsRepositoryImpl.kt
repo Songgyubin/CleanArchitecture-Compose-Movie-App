@@ -1,10 +1,10 @@
-package com.gyub.data.repository
+package com.gyub.data.movie.repository
 
-import com.gyub.data.datasource.MovieListsDataSource
-import com.gyub.data.model.toEntity
-import com.gyub.domain.movies.model.MovieListsEntity
-import com.gyub.domain.movies.model.request.base.BasePageRequest
-import com.gyub.domain.movies.repository.MovieListsRepository
+import com.gyub.data.movie.datasource.MovieListsDataSource
+import com.gyub.data.movie.model.toEntity
+import com.gyub.domain.movie.model.MovieListsEntity
+import com.gyub.domain.movie.model.request.base.BasePageRequest
+import com.gyub.domain.movie.repository.MovieListsRepository
 import javax.inject.Inject
 
 /**

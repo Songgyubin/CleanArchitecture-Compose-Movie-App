@@ -1,4 +1,4 @@
-package com.gyub.domain.movies.model
+package com.gyub.domain.movie.model
 
 /**
  * 영화 목록 Entiy
