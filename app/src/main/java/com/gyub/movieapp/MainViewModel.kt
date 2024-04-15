@@ -11,12 +11,12 @@ import com.gyub.movieapp.model.GenreUiModel
 import com.gyub.movieapp.model.MovieListsUiModel
 import com.gyub.movieapp.model.toUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -27,13 +27,16 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    getNowPlayingMovieListUseCase: GetNowPlayingMovieListUseCase,
+    private val getNowPlayingMovieListUseCase: GetNowPlayingMovieListUseCase,
     getMovieGenreUseCase: GetMovieGenreUseCase
 ) : ViewModel() {
 
     private var basePageRequest = BasePageRequest()
     private val _selectedGenreId: MutableStateFlow<Int> = MutableStateFlow(0)
     val selectedGenreId = _selectedGenreId.asStateFlow()
+
+    private val _nowPlayingMoviesState: MutableStateFlow<NowPlayingMovieUiState> = MutableStateFlow(NowPlayingMovieUiState.Loading)
+    val nowPlayingMoviesState = _nowPlayingMoviesState.asStateFlow()
 
     val movieGenres = getMovieGenreUseCase()
         .toResult()
@@ -42,7 +45,6 @@ class MainViewModel @Inject constructor(
                 is Result.Loading -> MovieGenresUiState.Loading
                 is Result.Error -> MovieGenresUiState.Error
                 is Result.Success -> {
-                    delay(1000)
                     MovieGenresUiState.Success(result.data.map { it.toUiModel() })
                 }
             }
@@ -53,20 +55,24 @@ class MainViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(5000)
         )
 
-    val nowPlayingMovieListState = getNowPlayingMovieListUseCase(basePageRequest)
-        .toResult()
-        .map { result ->
-            when (result) {
-                is Result.Loading -> NowPlayingMovieUiState.Loading
-                is Result.Error -> NowPlayingMovieUiState.Error
-                is Result.Success -> NowPlayingMovieUiState.Success(result.data.toUiModel())
-            }
+    /**
+     * 영화 리스트 가져오기
+     */
+    fun fetchNowPlayingMovies(genreId: Int = 0) {
+        viewModelScope.launch {
+            getNowPlayingMovieListUseCase(basePageRequest)
+                .toResult()
+                .map { result ->
+                    when (result) {
+                        is Result.Loading -> NowPlayingMovieUiState.Loading
+                        is Result.Error -> NowPlayingMovieUiState.Error
+                        is Result.Success -> NowPlayingMovieUiState.Success(result.data.toUiModel(genreId))
+                    }
+                }.collect {
+                    _nowPlayingMoviesState.value = it
+                }
         }
-        .stateIn(
-            viewModelScope,
-            initialValue = MovieListsUiModel(),
-            started = SharingStarted.WhileSubscribed(5000)
-        )
+    }
 
     /**
      * 장르 선택

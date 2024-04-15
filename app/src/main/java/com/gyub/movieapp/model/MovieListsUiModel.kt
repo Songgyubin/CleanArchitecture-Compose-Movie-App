@@ -34,11 +34,18 @@ data class MovieListsUiModel(
 /**
  * [MovieListsEntity] to [MovieListsUiModel]
  */
-fun MovieListsEntity.toUiModel(): MovieListsUiModel =
+fun MovieListsEntity.toUiModel(genreId: Int): MovieListsUiModel =
     MovieListsUiModel(
         dates = dates.toUiModel(),
         page = page.orDefault(),
-        results = results?.map { it.toUiModel() }.orEmpty()
+        results = results
+            ?.filter {
+                if (genreId == 0) true
+                else it.genreIds?.contains(genreId)
+                    .orDefault(false)
+            }
+            ?.map { it.toUiModel() }
+            .orEmpty()
     )
 
 /***
