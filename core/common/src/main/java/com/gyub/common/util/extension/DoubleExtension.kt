@@ -12,3 +12,13 @@ package com.gyub.common.util.extension
  */
 fun Double?.orDefault(defaultValue: Double = 0.0) =
     this ?: defaultValue
+
+/**
+ * 소수점 첫째 자리까지의 문자열 반환
+ *
+ * @return 소수점 첫째 자리까지의 문자열
+ */
+fun Double?.formatToSingleDecimal(): String {
+    this ?: "0"
+    return String.format("%.1f", this)
+}

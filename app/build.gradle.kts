@@ -4,6 +4,7 @@ import extensions.DATA
 import extensions.DESIGN
 import extensions.DOMAIN
 import extensions.applyAndroidX
+import extensions.applyCoil
 import extensions.applyCoroutines
 import extensions.applyHilt
 import extensions.applyNetwork
@@ -72,6 +73,7 @@ dependencies {
     applyCoroutines()
     applyNetwork()
     applyHilt()
+    applyCoil()
     applyUITest()
     applyUnitTest()
 }

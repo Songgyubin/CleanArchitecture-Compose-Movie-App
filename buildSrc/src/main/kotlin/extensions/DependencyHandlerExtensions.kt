@@ -70,6 +70,14 @@ fun DependencyHandlerScope.applyGoogle() {
 }
 
 /**
+ * Coil Lib에 관한 종속성 적용
+ */
+fun DependencyHandlerScope.applyCoil() {
+    implementation(Dependencies.COIL_KT)
+    implementation(Dependencies.COIL_KT_COMPOSE)
+}
+
+/**
  * UI Test에 관한 종속성 적용
  */
 fun DependencyHandlerScope.applyUITest() {
@@ -80,6 +88,7 @@ fun DependencyHandlerScope.applyUITest() {
     debugImplementation(Dependencies.DEBUG_ANDROIDX_COMPOSE_UI_TOOLING)
     debugImplementation(Dependencies.DEBUG_ANDROIDX_COMPOSE_UI_TEST_MANIFEST)
 }
+
 /**
  * Unit Test에 관한 종속성 적용
  */

@@ -1,5 +1,7 @@
 package com.gyub.domain.movie.model
 
+import java.io.Serial
+
 /**
  * 영화 목록 Entiy
  *
