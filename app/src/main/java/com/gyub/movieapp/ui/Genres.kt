@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -24,6 +25,7 @@ import com.gyub.core.design.theme.GDSGreenGray90
 import com.gyub.core.design.theme.GDSTypography
 import com.gyub.movieapp.MainViewModel
 import com.gyub.movieapp.MovieGenresUiState
+import com.gyub.movieapp.R
 import com.gyub.movieapp.model.GenreUiModel
 
 /**
@@ -43,7 +45,8 @@ fun GenreScreen(
         is MovieGenresUiState.Error -> {}
         is MovieGenresUiState.Loading -> {}
         is MovieGenresUiState.Success -> {
-            GenreList(state.data, selectedGenreId, viewModel::selectGenre)
+            val genreList = listOf(GenreUiModel(0, stringResource(R.string.all))) + state.data
+            GenreList(genreList, selectedGenreId, viewModel::selectGenre)
         }
     }
 }

@@ -98,7 +98,7 @@ fun MovieViewPager(
                 elevation = 10.dp,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(400.dp)
+                    .height(450.dp)
                     .graphicsLayer {
                         val pageOffset = (
                                 (pagerState.currentPage - page) + pagerState
@@ -124,7 +124,7 @@ fun MovieViewPager(
                     modifier = Modifier.fillMaxSize()
                 )
             }
-            Spacer(modifier = Modifier.height(35.dp))
+            Spacer(modifier = Modifier.height(40.dp))
             Text(
                 text = movies[page].title,
                 color = GDSGray10,

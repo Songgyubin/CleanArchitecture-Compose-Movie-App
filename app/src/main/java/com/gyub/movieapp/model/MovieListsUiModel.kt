@@ -44,7 +44,7 @@ fun MovieListsEntity.toUiModel(genreId: Int): MovieListsUiModel =
         results = results
             ?.filter {
                 if (genreId == 0) true
-                else it.genreIds?.contains(genreId)
+                else (it.genreIds?.first() == genreId)
                     .orDefault(false)
             }
             ?.map { it.toUiModel() }
