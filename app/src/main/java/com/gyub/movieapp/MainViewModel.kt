@@ -66,7 +66,9 @@ class MainViewModel @Inject constructor(
                     when (result) {
                         is Result.Loading -> NowPlayingMovieUiState.Loading
                         is Result.Error -> NowPlayingMovieUiState.Error
-                        is Result.Success -> NowPlayingMovieUiState.Success(result.data.toUiModel(genreId))
+                        is Result.Success -> {
+                            NowPlayingMovieUiState.Success(result.data.toUiModel(genreId))
+                        }
                     }
                 }.collect {
                     _nowPlayingMoviesState.value = it
@@ -81,6 +83,7 @@ class MainViewModel @Inject constructor(
      */
     fun selectGenre(genreUiModel: GenreUiModel) {
         _selectedGenreId.value = genreUiModel.id
+        fetchNowPlayingMovies(genreUiModel.id)
     }
 }
 

@@ -54,11 +54,11 @@ class MainActivity : ComponentActivity() {
 
                     Column(modifier = Modifier.fillMaxSize()) {
                         TopAppBar(onImageClick = { showText = true })
-                        Spacer(modifier = Modifier.height(48.dp))
+                        Spacer(modifier = Modifier.height(24.dp))
                         CategoryList(MovieListsCategory.entries)
-                        Spacer(modifier = Modifier.height(48.dp))
+                        Spacer(modifier = Modifier.height(24.dp))
                         GenreScreen()
-                        Spacer(modifier = Modifier.height(72.dp))
+                        Spacer(modifier = Modifier.height(36.dp))
                         MovieScreen(modifier = Modifier.fillMaxWidth())
                     }
                 }

@@ -1,29 +1,49 @@
 package com.gyub.movieapp.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
+import com.gyub.common.util.extension.formatToSingleDecimal
+import com.gyub.core.design.R.drawable
+import com.gyub.core.design.theme.GDSGray10
+import com.gyub.core.design.theme.GDSGray40
+import com.gyub.core.design.theme.GDSTypography
 import com.gyub.movieapp.MainViewModel
 import com.gyub.movieapp.NowPlayingMovieUiState
+import com.gyub.movieapp.R
 import com.gyub.movieapp.model.MovieListsUiModel
 import kotlin.math.absoluteValue
 
@@ -70,12 +90,15 @@ fun MovieViewPager(
         pageSpacing = 33.dp,
         contentPadding = PaddingValues(horizontal = 50.dp)
     ) { page ->
-        Column {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Card(
                 shape = RoundedCornerShape(50.dp),
+                elevation = 10.dp,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(458.dp)
+                    .height(400.dp)
                     .graphicsLayer {
                         val pageOffset = (
                                 (pagerState.currentPage - page) + pagerState
@@ -96,9 +119,26 @@ fun MovieViewPager(
                     }
             ) {
                 AsyncImage(
-                    model = movies[page].posterPath, contentDescription = "Poster",
+                    model = movies[page].getPosterUrl(), contentDescription = "Poster",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
+                )
+            }
+            Spacer(modifier = Modifier.height(35.dp))
+            Text(
+                text = movies[page].title,
+                color = GDSGray10,
+                style = GDSTypography.h4.copy(fontWeight = FontWeight.SemiBold),
+                modifier = Modifier
+            )
+            Spacer(modifier = Modifier.height(9.dp))
+            Row {
+                Image(painter = painterResource(id = drawable.gds_icon_star), contentDescription = "Rating")
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = movies[page].voteAverage.formatToSingleDecimal(),
+                    style = GDSTypography.body1,
+                    color = GDSGray40
                 )
             }
         }

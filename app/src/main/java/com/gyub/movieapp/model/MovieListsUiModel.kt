@@ -23,7 +23,10 @@ data class MovieListsUiModel(
         val releaseDate: String = "",
         val title: String = "",
         val voteAverage: Double = 0.0,
-    )
+    ) {
+        private val baseImageUrl = "https://image.tmdb.org/t/p/"
+        fun getPosterUrl(size: String = "original") = "$baseImageUrl$size$posterPath"
+    }
 
     data class DatesUiModel(
         val max: String = "",
