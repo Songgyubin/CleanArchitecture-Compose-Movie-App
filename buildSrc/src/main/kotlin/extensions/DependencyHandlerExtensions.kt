@@ -32,6 +32,7 @@ fun DependencyHandlerScope.applyAndroidX() {
     implementation(Dependencies.ANDROIDX_COMPOSE_MATERIAL)
     implementation(Dependencies.ANDROIDX_NAVIGATION_COMPOSE)
     implementation(Dependencies.ANDROIDX_HILT_NAVIGATION_COMPOSE)
+    implementation(Dependencies.ANDROIDX_LIFECYCLE_RUNTIME_COMPOSE)
 }
 
 /**
@@ -69,6 +70,14 @@ fun DependencyHandlerScope.applyGoogle() {
 }
 
 /**
+ * Coil Lib에 관한 종속성 적용
+ */
+fun DependencyHandlerScope.applyCoil() {
+    implementation(Dependencies.COIL_KT)
+    implementation(Dependencies.COIL_KT_COMPOSE)
+}
+
+/**
  * UI Test에 관한 종속성 적용
  */
 fun DependencyHandlerScope.applyUITest() {
@@ -79,6 +88,7 @@ fun DependencyHandlerScope.applyUITest() {
     debugImplementation(Dependencies.DEBUG_ANDROIDX_COMPOSE_UI_TOOLING)
     debugImplementation(Dependencies.DEBUG_ANDROIDX_COMPOSE_UI_TEST_MANIFEST)
 }
+
 /**
  * Unit Test에 관한 종속성 적용
  */
@@ -86,6 +96,7 @@ fun DependencyHandlerScope.applyUnitTest() {
     testImplementation(Dependencies.TEST_JUNIT)
     testImplementation(Dependencies.MOCKK)
     testImplementation(Dependencies.MOCK_WEB_SERVER)
+    testImplementation(Dependencies.COROUTINES_TEST)
 }
 
 /**

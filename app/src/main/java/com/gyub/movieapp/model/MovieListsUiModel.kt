@@ -1,7 +1,7 @@
 package com.gyub.movieapp.model
 
 import com.gyub.common.util.extension.orDefault
-import com.gyub.domain.movies.model.MovieListsEntity
+import com.gyub.domain.movie.model.MovieListsEntity
 
 /**
  * 영화 목록 UI Model
@@ -23,7 +23,10 @@ data class MovieListsUiModel(
         val releaseDate: String = "",
         val title: String = "",
         val voteAverage: Double = 0.0,
-    )
+    ) {
+        private val baseImageUrl = "https://image.tmdb.org/t/p/"
+        fun getPosterUrl(size: String = "original") = "$baseImageUrl$size$posterPath"
+    }
 
     data class DatesUiModel(
         val max: String = "",
@@ -34,11 +37,18 @@ data class MovieListsUiModel(
 /**
  * [MovieListsEntity] to [MovieListsUiModel]
  */
-fun MovieListsEntity.toUiModel(): MovieListsUiModel =
+fun MovieListsEntity.toUiModel(genreId: Int): MovieListsUiModel =
     MovieListsUiModel(
         dates = dates.toUiModel(),
         page = page.orDefault(),
-        results = results?.map { it.toUiModel() }.orEmpty()
+        results = results
+            ?.filter {
+                if (genreId == 0) true
+                else (it.genreIds?.first() == genreId)
+                    .orDefault(false)
+            }
+            ?.map { it.toUiModel() }
+            .orEmpty()
     )
 
 /***

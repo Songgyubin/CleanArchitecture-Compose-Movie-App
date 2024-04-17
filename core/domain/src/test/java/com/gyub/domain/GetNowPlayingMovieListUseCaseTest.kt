@@ -1,13 +1,14 @@
 package com.gyub.domain
 
-import com.gyub.domain.movies.model.MovieListsEntity
-import com.gyub.domain.movies.model.request.base.BasePageRequest
-import com.gyub.domain.movies.repository.MovieListsRepository
-import com.gyub.domain.movies.usecase.GetNowPlayingMovieListUseCase
+import com.gyub.domain.movie.model.MovieListsEntity
+import com.gyub.domain.base.request.BasePageRequest
+import com.gyub.domain.movie.repository.MovieListsRepository
+import com.gyub.domain.movie.usecase.GetNowPlayingMovieListUseCase
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import junit.framework.TestCase.assertEquals
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -31,7 +32,7 @@ class GetNowPlayingMovieListUseCaseTest {
 
     @Before
     fun setUp() {
-        getNowPlayingMovieListUseCase = GetNowPlayingMovieListUseCase(movieListsRepository)
+        getNowPlayingMovieListUseCase = GetNowPlayingMovieListUseCase(movieListsRepository, Dispatchers.Unconfined)
     }
 
     @Test

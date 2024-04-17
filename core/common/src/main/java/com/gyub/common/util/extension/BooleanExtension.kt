@@ -10,5 +10,5 @@ package com.gyub.common.util.extension
 /**
  * null이면 default Value 반환
  */
-fun Boolean?.orDefault(defaultValue: Boolean) =
+fun Boolean?.orDefault(defaultValue: Boolean = false) =
     this ?: defaultValue

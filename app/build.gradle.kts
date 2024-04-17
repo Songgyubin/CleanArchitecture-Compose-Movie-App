@@ -4,10 +4,12 @@ import extensions.DATA
 import extensions.DESIGN
 import extensions.DOMAIN
 import extensions.applyAndroidX
+import extensions.applyCoil
 import extensions.applyCoroutines
 import extensions.applyHilt
 import extensions.applyNetwork
 import extensions.applyUITest
+import extensions.applyUnitTest
 
 plugins {
     id(Plugins.ANDROID_APPLICATION_PLUGIN)
@@ -71,5 +73,7 @@ dependencies {
     applyCoroutines()
     applyNetwork()
     applyHilt()
+    applyCoil()
     applyUITest()
+    applyUnitTest()
 }

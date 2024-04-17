@@ -56,13 +56,13 @@ val GDSTypography = Typography(
     ),
     subtitle2 = TextStyle(
         fontWeight = FontWeight.Bold,
-        fontSize = 18.sp,
+        fontSize = 20.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.1.sp
     ),
     body1 = TextStyle(
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
+        fontSize = 18.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),
@@ -74,7 +74,7 @@ val GDSTypography = Typography(
     ),
     button = TextStyle(
         fontWeight = FontWeight.Medium,
-        fontSize = 14.sp,
+        fontSize = 10.sp,
         lineHeight = 20.sp,
         letterSpacing = 0.1.sp
     ),

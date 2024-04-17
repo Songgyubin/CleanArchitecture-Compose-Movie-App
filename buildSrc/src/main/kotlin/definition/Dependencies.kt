@@ -13,14 +13,14 @@ object Dependencies {
      */
     const val ANDROIDX_COMPOSE_BOM = "androidx.compose:compose-bom:${Versions.ANDROIDX_COMPOSE_BOM}"
     const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:${Versions.ANDROIDX_CORE_KTX}"
-    const val ANDROIDX_LIFECYCLE_RUNTIME_KTX = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.ANDROIDX_LIFECYCLE_RUNTIME_KTX}"
+    const val ANDROIDX_LIFECYCLE_RUNTIME_KTX = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.ANDROIDX_LIFECYCLE}"
     const val ANDROIDX_ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.ANDROIDX_ACTIVITY_COMPOSE}"
     const val ANDROIDX_COMPOSE_UI = "androidx.compose.ui:ui:${Versions.ANDROIDX_COMPOSE_UI}"
     const val ANDROIDX_COMPOSE_UI_TOOLING_PREIVEW = "androidx.compose.ui:ui-tooling-preview:${Versions.ANDROIDX_COMPOSE_UI}"
     const val ANDROIDX_COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.ANDROIDX_COMPOSE_MATERIAL}"
     const val ANDROIDX_NAVIGATION_COMPOSE = "androidx.navigation:navigation-compose:${Versions.ANDROIDX_NAVIGATION_COMPOSE}"
     const val ANDROIDX_HILT_NAVIGATION_COMPOSE = "androidx.hilt:hilt-navigation-compose:${Versions.ANDROIDX_HILT_NAVIGATION_COMPOSE}"
-
+    const val ANDROIDX_LIFECYCLE_RUNTIME_COMPOSE = "androidx.lifecycle:lifecycle-runtime-compose:${Versions.ANDROIDX_LIFECYCLE}"
     /**
      * Coroutines
      */
@@ -43,6 +43,12 @@ object Dependencies {
     const val DAGGER_HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.DAGGER_HILT_COMPILER}"
 
     /**
+     * COIL
+     */
+    const val COIL_KT = "io.coil-kt:coil:${Versions.COIL_KT}"
+    const val COIL_KT_COMPOSE = "io.coil-kt:coil-compose:${Versions.COIL_KT}"
+
+    /**
      * Google Library
      */
     const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
@@ -62,4 +68,5 @@ object Dependencies {
     const val TEST_JUNIT = "junit:junit:${Versions.TEST_JUNIT}"
     const val MOCKK = "io.mockk:mockk:${Versions.TEST_MOCKK}"
     const val MOCK_WEB_SERVER = "com.squareup.okhttp3:mockwebserver:${Versions.TEST_MOCK_WEB_SERVER}"
+    const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES}"
 }

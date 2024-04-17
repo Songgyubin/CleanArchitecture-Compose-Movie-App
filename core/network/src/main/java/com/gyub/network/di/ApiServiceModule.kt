@@ -1,11 +1,13 @@
 package com.gyub.network.di
 
+import com.gyub.network.retrofit.GenresService
 import com.gyub.network.retrofit.MovieListsService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import retrofit2.create
 import javax.inject.Singleton
 
 /**
@@ -20,10 +22,18 @@ object ApiServiceModule {
 
     @Singleton
     @Provides
-    fun provideMeService(retrofit: Retrofit.Builder): MovieListsService {
+    fun provideMovieListsService(retrofit: Retrofit.Builder): MovieListsService {
         return retrofit
             .build()
-            .create(MovieListsService::class.java)
+            .create()
+    }
+
+    @Singleton
+    @Provides
+    fun provideGenresService(retrofit: Retrofit.Builder): GenresService {
+        return retrofit
+            .build()
+            .create()
     }
 
 }
