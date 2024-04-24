@@ -2,7 +2,6 @@ package com.gyub.movieapp.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -14,21 +13,17 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,7 +38,6 @@ import com.gyub.core.design.theme.GDSGray40
 import com.gyub.core.design.theme.GDSTypography
 import com.gyub.movieapp.MainViewModel
 import com.gyub.movieapp.NowPlayingMovieUiState
-import com.gyub.movieapp.R
 import com.gyub.movieapp.model.MovieListsUiModel
 import kotlin.math.absoluteValue
 
@@ -95,7 +89,7 @@ fun MovieViewPager(
         ) {
             Card(
                 shape = RoundedCornerShape(50.dp),
-                elevation = 10.dp,
+                elevation = CardDefaults.cardElevation(10.dp),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(450.dp)
@@ -128,7 +122,7 @@ fun MovieViewPager(
             Text(
                 text = movies[page].title,
                 color = GDSGray10,
-                style = GDSTypography.h4.copy(fontWeight = FontWeight.SemiBold),
+                style = GDSTypography.displaySmall.copy(fontWeight = FontWeight.SemiBold),
                 modifier = Modifier
             )
             Spacer(modifier = Modifier.height(9.dp))
@@ -137,7 +131,7 @@ fun MovieViewPager(
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     text = movies[page].voteAverage.formatToSingleDecimal(),
-                    style = GDSTypography.body1,
+                    style = GDSTypography.titleMedium,
                     color = GDSGray40
                 )
             }
@@ -148,7 +142,16 @@ fun MovieViewPager(
 @Preview(showBackground = true)
 @Composable
 fun MovieViewPagerPreview() {
-//    MovieViewPager()
+    MovieViewPager(
+        movies = listOf(
+            MovieListsUiModel.MovieUiModel(),
+            MovieListsUiModel.MovieUiModel(),
+            MovieListsUiModel.MovieUiModel(),
+            MovieListsUiModel.MovieUiModel(),
+            MovieListsUiModel.MovieUiModel(),
+            MovieListsUiModel.MovieUiModel(),
+        )
+    )
 }
 
 const val PREVIOUS_PAGE_ROTATION = -7f

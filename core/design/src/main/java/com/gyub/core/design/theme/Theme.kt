@@ -1,37 +1,22 @@
 package com.gyub.core.design.theme
 
-import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Shapes
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalView
-import androidx.compose.ui.unit.dp
-import androidx.core.view.WindowCompat
+import androidx.compose.ui.graphics.Color
 
-private val DarkColorPalette = darkColors(
+private val DarkColorPalette = darkColorScheme(
     primary = GDSRed30,
-    primaryVariant = DarkPurpleGray20,
-    secondary = GDSRed80
-    // 기타 필요한 색상을 추가할 수 있습니다.
+    secondary = GDSRed80,
+    onPrimary = Color.White
 )
 
-private val LightColorPalette = lightColors(
+private val LightColorPalette = lightColorScheme(
     primary = GDSWhite,
-    primaryVariant = PurpleGray50,
-    secondary = GDSBlue80
-    // 기타 필요한 색상을 추가할 수 있습니다.
-)
-
-val Shapes = Shapes(
-    small = RoundedCornerShape(4.dp),
-    medium = RoundedCornerShape(4.dp),
-    large = RoundedCornerShape(0.dp)
+    secondary = GDSBlue80,
+    onPrimary = Color.Black
 )
 
 @Composable
@@ -39,20 +24,12 @@ fun CleanArchitectureComposeMovieAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-//    val colors = if (darkTheme) DarkColorPalette else LightColorPalette
-    val colors = LightColorPalette
-    val view = LocalView.current
-
-    SideEffect {
-        val window = (view.context as Activity).window
-        window.statusBarColor = colors.primary.toArgb()
-        WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
-    }
+//    val colorScheme = if (darkTheme) DarkColorPalette else LightColorPalette
+    val colorScheme = LightColorPalette
 
     MaterialTheme(
-        colors = colors,
+        colorScheme = colorScheme,
         typography = GDSTypography,
-        shapes = Shapes,
         content = content
     )
 }

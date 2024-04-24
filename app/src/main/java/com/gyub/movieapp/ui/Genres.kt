@@ -6,10 +6,8 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Chip
-import androidx.compose.material.ChipDefaults
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Text
+import androidx.compose.material3.InputChip
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -63,25 +61,23 @@ private fun GenreList(genres: List<GenreUiModel>, selectedGenreId: Int, onGenreS
     }
 }
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun GenreChip(
     genre: GenreUiModel,
     selected: Boolean = false,
     onClick: () -> Unit
 ) {
-    Chip(
+    InputChip(
         onClick = { onClick() },
         border = BorderStroke(1.5.dp, if (selected) GDSGray10 else GDSGreenGray90),
-        colors = ChipDefaults.chipColors(
-            backgroundColor = Color.White
-        )
-    ) {
-        Text(
-            text = genre.name,
-            modifier = Modifier.padding(horizontal = 12.dp),
-            style = GDSTypography.subtitle2,
-            color = if (selected) GDSGray40 else GDSGreenGray60
-        )
-    }
+        label = {
+            Text(
+                text = genre.name,
+                modifier = Modifier.padding(horizontal = 12.dp),
+                style = GDSTypography.titleLarge,
+                color = if (selected) GDSGray40 else GDSGreenGray60
+            )
+        },
+        selected = selected
+    )
 }

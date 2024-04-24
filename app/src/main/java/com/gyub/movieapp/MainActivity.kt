@@ -13,10 +13,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Surface
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Surface
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -53,7 +54,7 @@ class MainActivity : ComponentActivity() {
                     ComingSoonCircularText(visible = showText, onVisibilityChange = { showText = it })
 
                     Column(modifier = Modifier.fillMaxSize()) {
-                        TopAppBar(onImageClick = { showText = true })
+                        MovieTopAppBar(onImageClick = { showText = true })
                         Spacer(modifier = Modifier.height(48.dp))
                         CategoryList(MovieListsCategory.entries)
                         Spacer(modifier = Modifier.height(48.dp))
@@ -67,42 +68,44 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBar(onImageClick: () -> Unit) {
+fun MovieTopAppBar(onImageClick: () -> Unit) {
     TopAppBar(
+        title = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = Paddings.xExtra, end = Paddings.xExtra),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.gds_menu),
+                    contentDescription = "Menu",
+                    modifier = Modifier.clickable {
+                        onImageClick()
+                    }
+                )
+
+                Image(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = "Search",
+                    modifier = Modifier.clickable {
+                        onImageClick()
+                    }
+                )
+            }
+
+        },
         modifier = Modifier
             .fillMaxWidth()
             .height(56.dp),
-        elevation = 0.dp,
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = Paddings.xExtra, end = Paddings.xExtra),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.gds_menu),
-                contentDescription = "Menu",
-                modifier = Modifier.clickable {
-                    onImageClick()
-                }
-            )
-
-            Image(
-                imageVector = Icons.Default.Search,
-                contentDescription = "Search",
-                modifier = Modifier.clickable {
-                    onImageClick()
-                }
-            )
-        }
-    }
+    )
 }
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun TopAppBarPreview() {
-    TopAppBar({})
+    MovieTopAppBar({})
 }

@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -68,7 +68,7 @@ fun CategoryIndicatorText(
     ) {
         Text(
             text = categoryName,
-            style = GDSTypography.h4.copy(
+            style = GDSTypography.headlineLarge.copy(
                 fontWeight = FontWeight.SemiBold
             ),
             color = if (isSelected) GDSGray10 else GDSGray30

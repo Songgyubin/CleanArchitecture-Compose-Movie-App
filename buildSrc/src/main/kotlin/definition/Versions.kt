@@ -12,7 +12,7 @@ object Versions {
     const val ANDROIDX_LIFECYCLE = "2.7.0"
     const val ANDROIDX_ACTIVITY_COMPOSE = "1.8.2"
     const val ANDROIDX_NAVIGATION_COMPOSE = "2.7.7"
-    const val ANDROIDX_COMPOSE_MATERIAL = "1.6.1"
+    const val ANDROIDX_COMPOSE_MATERIAL_3 = "1.2.1"
     const val ANDROIDX_COMPOSE_UI = "1.6.1"
     const val ANDROIDX_HILT_NAVIGATION_COMPOSE = "1.0.0"
     const val COROUTINES = "1.7.3"

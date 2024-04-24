@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -55,7 +55,7 @@ fun ComingSoonCircularText(
             ) {
                 Text(
                     text = stringResource(R.string.coming_soon),
-                    style = GDSTypography.caption,
+                    style = GDSTypography.bodyMedium,
                     modifier = Modifier.align(Alignment.Center)
                 )
             }
