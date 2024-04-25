@@ -1,5 +1,6 @@
 package com.gyub.movieapp.ui
 
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -19,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
@@ -27,7 +29,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.util.lerp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
@@ -84,56 +85,68 @@ fun MovieViewPager(
         pageSpacing = 33.dp,
         contentPadding = PaddingValues(horizontal = 50.dp)
     ) { page ->
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Card(
-                shape = RoundedCornerShape(50.dp),
-                elevation = CardDefaults.cardElevation(10.dp),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(450.dp)
-                    .graphicsLayer {
-                        val pageOffset = (
-                                (pagerState.currentPage - page) + pagerState
-                                    .currentPageOffsetFraction
-                                ).absoluteValue
-
-                        rotationZ = when {
-                            page < pagerState.currentPage -> PREVIOUS_PAGE_ROTATION * pageOffset
-                            page > pagerState.currentPage -> NEXT_PAGE_ROTATION * pageOffset
-                            else -> 0f
-                        }
-
-                        alpha = lerp(
-                            start = 0.5f,
-                            stop = 1f,
-                            fraction = 1f - pageOffset.coerceIn(0f, 1f)
-                        )
-                    }
+        key(pagerState.currentPage) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                AsyncImage(
-                    model = movies[page].getPosterUrl(), contentDescription = "Poster",
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
-            Spacer(modifier = Modifier.height(40.dp))
-            Text(
-                text = movies[page].title,
-                color = GDSGray10,
-                style = GDSTypography.displaySmall.copy(fontWeight = FontWeight.SemiBold),
-                modifier = Modifier
-            )
-            Spacer(modifier = Modifier.height(9.dp))
-            Row {
-                Image(painter = painterResource(id = drawable.gds_icon_star), contentDescription = "Rating")
-                Spacer(modifier = Modifier.width(8.dp))
+                val currentElevation = if (page == pagerState.currentPage) {
+                    Log.d("TAG", " - currentElevation: $page ")
+                    10.dp // 현재 페이지일 때
+                } else {
+                    Log.d("TAG", " - not Current: $page")
+                    0.dp // 이전 또는 다음 페이지일 때
+                }
+
+                Card(
+                    shape = RoundedCornerShape(50.dp),
+                    elevation = CardDefaults.cardElevation(currentElevation),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(450.dp)
+                        .graphicsLayer {
+                            val pageOffset = (
+                                    (pagerState.currentPage - page) + pagerState
+                                        .currentPageOffsetFraction
+                                    ).absoluteValue
+
+                            rotationZ = when {
+                                page < pagerState.currentPage -> {
+                                    PREVIOUS_PAGE_ROTATION * pageOffset
+                                }
+
+                                page > pagerState.currentPage -> {
+                                    NEXT_PAGE_ROTATION * pageOffset
+                                }
+
+                                else -> 0f
+                            }
+
+                            alpha = if (page == pagerState.currentPage) 1f else 0.5f
+                        }
+                ) {
+                    AsyncImage(
+                        model = movies[page].getPosterUrl(), contentDescription = "Poster",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+                Spacer(modifier = Modifier.height(40.dp))
                 Text(
-                    text = movies[page].voteAverage.formatToSingleDecimal(),
-                    style = GDSTypography.titleMedium,
-                    color = GDSGray40
+                    text = movies[page].title,
+                    color = GDSGray10,
+                    style = GDSTypography.displaySmall.copy(fontWeight = FontWeight.SemiBold),
+                    modifier = Modifier
                 )
+                Spacer(modifier = Modifier.height(9.dp))
+                Row {
+                    Image(painter = painterResource(id = drawable.gds_icon_star), contentDescription = "Rating")
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = movies[page].voteAverage.formatToSingleDecimal(),
+                        style = GDSTypography.titleMedium,
+                        color = GDSGray40
+                    )
+                }
             }
         }
     }
